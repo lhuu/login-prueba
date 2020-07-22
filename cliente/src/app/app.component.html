@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Jonathan G. Nieves</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav ml-auto">
+        <ng-container *ngIf="!In(); else loggedIn">
+          <li class="nav-item">
+            <a class="nav-link btn btn-primary mx-2 px-3" routerLink="/signin" routerLinkActive="active">SingIn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-info mx-2 px-3" routerLink="/signup" routerLinkActive="active">SingUp</a>
+          </li>
+        </ng-container>
+        <ng-template #loggedIn>
+          <li class="nav-item">
+            <a class="nav-link btn btn-info mx-2 px-3" (click)="Out()" routerLinkActive="active">Logout</a>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="contaienr p-5">
+  <router-outlet></router-outlet>
+</div>
